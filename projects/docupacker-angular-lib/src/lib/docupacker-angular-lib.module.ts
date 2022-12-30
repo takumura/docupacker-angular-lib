@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { DocupackerAngularLibComponent } from './docupacker-angular-lib.component';
 
 @NgModule({
-  declarations: [DocupackerAngularLibComponent],
+  declarations: [],
   imports: [],
-  exports: [DocupackerAngularLibComponent],
+  exports: [],
 })
 export class DocupackerAngularLibModule {}
