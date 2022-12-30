@@ -5,9 +5,14 @@
   "projects": {
     "docupacker-angular-lib": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/docupacker-angular-lib",
       "sourceRoot": "projects/docupacker-angular-lib/src",
-      "prefix": "lib",
+      "prefix": "docup",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -28,27 +33,19 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/docupacker-angular-lib/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "projects/docupacker-angular-lib/**/*.ts",
-              "projects/docupacker-angular-lib/**/*.html"
-            ]
+            "lintFilePatterns": ["projects/docupacker-angular-lib/**/*.ts", "projects/docupacker-angular-lib/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
