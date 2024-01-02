@@ -33,19 +33,43 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/docupacker-angular-lib/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
           "options": {
-            "lintFilePatterns": ["projects/docupacker-angular-lib/**/*.ts", "projects/docupacker-angular-lib/**/*.html"]
+            "configDir": "projects/docupacker-angular-lib/.storybook",
+            "browserTarget": "docupacker-angular-lib:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/docupacker-angular-lib"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/docupacker-angular-lib/.storybook",
+            "browserTarget": "docupacker-angular-lib:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/docupacker-angular-lib"
+            ],
+            "outputDir": "storybook-static"
           }
         }
       }
     }
-  },
-  "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
