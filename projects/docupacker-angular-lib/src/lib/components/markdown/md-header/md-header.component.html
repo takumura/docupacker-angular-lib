@@ -1,0 +1,16 @@
+<div class="document-header-container">
+  <div class="header-grid mat-caption header-hint-text">
+    @if (document?.category) {
+      <div>Category: {{ document?.category }}</div>
+    }
+    @if (document?.date) {
+      <div>Last Update: {{ document?.date }}</div>
+    }
+  </div>
+  @if (document?.title) {
+    <h1>{{ document?.title }}</h1>
+  }
+  <div class="tag-container">
+    <docup-tag-link-list [tags]="document?.tag" />
+  </div>
+</div>

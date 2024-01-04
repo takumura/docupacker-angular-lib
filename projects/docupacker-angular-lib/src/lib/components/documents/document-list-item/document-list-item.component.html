@@ -1,0 +1,23 @@
+@if (item && item.content) {
+  <mat-list-item class="list-item">
+    <div matLine>
+      <p>
+        <span class="mat-caption hint-text list-item-date">
+          {{ item.content.date }}
+        </span>
+        @if (item.content.category && showCategory) {
+          <span class="mat-accent list-item-category">
+            [{{ item.content.category }}]
+          </span>
+        }
+        <span class="list-item-title">{{ item.content.title }}</span>
+      </p>
+      @if (item.content.tag) {
+        <p class="list-item-tag">
+          <docup-tag-link-list [tags]="item.content.tag" />
+        </p>
+      }
+    </div>
+  </mat-list-item>
+  <mat-divider />
+}

@@ -44,7 +44,7 @@
           "options": {
             "configDir": "projects/docupacker-angular-lib/.storybook",
             "browserTarget": "docupacker-angular-lib:build",
-            "styles": ["node_modules/@angular/material/prebuilt-themes/indigo-pink.css"],
+            "styles": ["node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"],
             "compodoc": true,
             "compodocArgs": [
               "-e",

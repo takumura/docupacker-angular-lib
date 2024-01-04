@@ -2,6 +2,117 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "DocumentRef",
+            "id": "interface-DocumentRef-039e60ac2e66369da5ea1b4445871efdbe2ca8a4c4ae896425011a1026fc11c79ef2aca31a057ed24590156add58dc9fdc557216e971b83d300b1185a2dfa068",
+            "file": "projects/docupacker-angular-lib/src/lib/models/document-ref.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { MarkdownDocument } from './markdown-document.model';\n\nexport interface DocumentRef {\n  docRef: string;\n  content: MarkdownDocument;\n}\n",
+            "properties": [
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MarkdownDocument",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "docRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "MarkdownDocument",
+            "id": "interface-MarkdownDocument-60b6f408feca9d12666bca05c13ac5a13c9cdd46639df5f4fa68c4a0abf967ac08272eb92f258b4cf7dfeb7763ce7691440f61276bf4842edae18a5fe166dc31",
+            "file": "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface MarkdownDocument {\n  title: string;\n  date: string;\n  category: string;\n  tag: string[];\n  toc: string;\n  body: string;\n  bodyHtml: string;\n}\n\nexport const initialMarkdownDocumentModel = {\n  title: '',\n  date: '',\n  category: '',\n  tag: [],\n  toc: '',\n  body: '',\n  bodyHtml: '',\n};\n",
+            "properties": [
+                {
+                    "name": "body",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "bodyHtml",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "category",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "date",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "tag",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "toc",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "User",
             "id": "interface-User-d4821beac0e4a852e513391b7470981c4353fdd95a18628bb68136c8695b489ee15b926e2e5031bc26cf30e1508e0a362c3ee13a06734702b4d15af140e485d5",
             "file": "projects/docupacker-angular-lib/src/stories/user.ts",
@@ -189,6 +300,156 @@
             }
         },
         {
+            "name": "DocumentListComponent",
+            "id": "component-DocumentListComponent-a189cd4cb39a4e0102232d27358a15c7285772749b1d986060748de7c3f7ef4ddb9677a139433f1e0bb157b5dd9e31c07a1c00c64c37f92c4f78959a5b562e12",
+            "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-document-list",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./document-list.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "documents",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "DocumentRef[] | null",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatListModule",
+                    "type": "module"
+                },
+                {
+                    "name": "DocumentListItemComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { MatListModule } from '@angular/material/list';\nimport { DocumentRef } from '../../../models/document-ref.model';\nimport { DocumentListItemComponent } from '../document-list-item/document-list-item.component';\n\n@Component({\n  selector: 'docup-document-list',\n  standalone: true,\n  imports: [MatListModule, DocumentListItemComponent],\n  templateUrl: './document-list.component.html',\n  styleUrl: './document-list.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class DocumentListComponent {\n  @Input() documents: DocumentRef[] | null = [];\n}\n",
+            "styleUrl": "./document-list.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-nav-list>\n  @for (document of documents; track $index) {\n    <docup-document-list-item [item]=\"document\" />\n  }\n</mat-nav-list>\n"
+        },
+        {
+            "name": "DocumentListItemComponent",
+            "id": "component-DocumentListItemComponent-89063b8da3b79f80cdae43f5c6d212bcd0f33a68dddb363f180230d32ec5319b3bc5f9af0c5cb36fbb8791c15853f3fcdb7d3fbbd5978c1a43d7b587e07ee4de",
+            "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-document-list-item",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./document-list-item.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "item",
+                    "defaultValue": "{\n    docRef: '',\n    content: initialMarkdownDocumentModel,\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "DocumentRef",
+                    "decorators": []
+                },
+                {
+                    "name": "showCategory",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "documentRef",
+                    "defaultValue": "'/doc'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatListModule",
+                    "type": "module"
+                },
+                {
+                    "name": "TagLinkListComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  OnInit,\n} from '@angular/core';\nimport { MatListModule } from '@angular/material/list';\nimport { TagLinkListComponent } from '../../tags/tag-link-list/tag-link-list.component';\nimport { DocumentRef } from '../../../models/document-ref.model';\nimport { initialMarkdownDocumentModel } from '../../../models/markdown-document.model';\n\n@Component({\n  selector: 'docup-document-list-item',\n  standalone: true,\n  imports: [MatListModule, TagLinkListComponent],\n  templateUrl: './document-list-item.component.html',\n  styleUrl: './document-list-item.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class DocumentListItemComponent implements OnInit {\n  @Input() item: DocumentRef = {\n    docRef: '',\n    content: initialMarkdownDocumentModel,\n  };\n  @Input() showCategory: boolean = true;\n  documentRef: string = '/doc';\n\n  ngOnInit(): void {\n    this.documentRef = `/doc/${this.item?.docRef}`;\n  }\n}\n",
+            "styleUrl": "./document-list-item.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "@if (item && item.content) {\n  <mat-list-item class=\"list-item\">\n    <div matLine>\n      <p>\n        <span class=\"mat-caption hint-text list-item-date\">\n          {{ item.content.date }}\n        </span>\n        @if (item.content.category && showCategory) {\n          <span class=\"mat-accent list-item-category\">\n            [{{ item.content.category }}]\n          </span>\n        }\n        <span class=\"list-item-title\">{{ item.content.title }}</span>\n      </p>\n      @if (item.content.tag) {\n        <p class=\"list-item-tag\">\n          <docup-tag-link-list [tags]=\"item.content.tag\" />\n        </p>\n      }\n    </div>\n  </mat-list-item>\n  <mat-divider />\n}\n"
+        },
+        {
             "name": "DocupackerAngularLibComponent",
             "id": "component-DocupackerAngularLibComponent-0490e30deee3e722c6980ee1075beb81a05aa5b1e3147dc8147b01762d49abecc1c66e249d5ab85d7e952155cf5c6985fc5cec0c16cf79210b5a48da18393e51",
             "file": "projects/docupacker-angular-lib/src/lib/docupacker-angular-lib.component.ts",
@@ -224,6 +485,192 @@
             "styleUrlsData": "",
             "stylesData": "\n",
             "extends": []
+        },
+        {
+            "name": "DynamicContainerComponent",
+            "id": "component-DynamicContainerComponent-bf230f60dd09dc248b10ace7b3bab545f828137cda14df9acafaf9d1b01c61912c1d9672805d35c298d3405dc09b9bf19e3206b9fc67e759f2c8d2721330d696",
+            "file": "projects/docupacker-angular-lib/src/lib/components/markdown/dynamic-container/dynamic-container.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-dynamic-container",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./dynamic-container.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "doc$",
+                    "defaultValue": "of()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "Observable<DocumentRef>",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "destroyRef",
+                    "defaultValue": "inject(DestroyRef)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 36
+                },
+                {
+                    "name": "mdContentRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 34,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'mdContent'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                },
+                {
+                    "name": "safeMdContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "SafeHtml | undefined",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngDoBootstrap",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "showGist",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 63,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "LoadingBarComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  CUSTOM_ELEMENTS_SCHEMA,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n  Component,\n  DestroyRef,\n  DoBootstrap,\n  ElementRef,\n  Injector,\n  Input,\n  OnInit,\n  ViewChild,\n  inject,\n} from '@angular/core';\nimport { takeUntilDestroyed } from '@angular/core/rxjs-interop';\nimport postscribe from 'postscribe';\nimport { DocumentRef } from '../../../models/document-ref.model';\nimport { DomSanitizer, SafeHtml } from '@angular/platform-browser';\nimport { Observable, of } from 'rxjs';\nimport { createCustomElement } from '@angular/elements';\nimport { LoadingBarComponent } from '../../loading-bar/loading-bar.component';\n\n@Component({\n  selector: 'docup-dynamic-container',\n  standalone: true,\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n  imports: [LoadingBarComponent],\n  templateUrl: './dynamic-container.component.html',\n  styleUrl: './dynamic-container.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class DynamicContainerComponent implements OnInit, DoBootstrap {\n  @Input() doc$: Observable<DocumentRef> = of();\n  @ViewChild('mdContent') mdContentRef: ElementRef | undefined;\n  safeMdContent: SafeHtml | undefined;\n  destroyRef = inject(DestroyRef);\n\n  constructor(\n    private sanitizer: DomSanitizer,\n    private injector: Injector,\n    private cdRef: ChangeDetectorRef,\n  ) { }\n\n  ngDoBootstrap() {\n    const element2 = createCustomElement(LoadingBarComponent, {\n      injector: this.injector,\n    });\n    customElements.get('docup-loading-bar') ||\n      customElements.define('docup-loading-bar', element2);\n  }\n\n  ngOnInit(): void {\n    this.doc$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((x) => {\n      this.safeMdContent = this.sanitizer.bypassSecurityTrustHtml(\n        x.content.bodyHtml,\n      );\n      // this.cdRef.markForCheck();\n      this.cdRef.detectChanges();\n      this.showGist();\n    });\n  }\n\n  private showGist() {\n    if (this.mdContentRef) {\n      const gists =\n        this.mdContentRef.nativeElement.querySelectorAll('div.gist');\n      gists.forEach((gist: HTMLDivElement) => {\n        postscribe(gist, gist.innerHTML);\n      });\n    }\n  }\n}\n",
+            "styleUrl": "./dynamic-container.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "sanitizer",
+                        "type": "DomSanitizer",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 36,
+                "jsdoctags": [
+                    {
+                        "name": "sanitizer",
+                        "type": "DomSanitizer",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "DoBootstrap"
+            ],
+            "templateData": "<div #mdContent class=\"doc-body\" [innerHTML]=\"safeMdContent\"></div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -310,6 +757,338 @@
             ],
             "stylesData": "",
             "extends": []
+        },
+        {
+            "name": "LoadingBarComponent",
+            "id": "component-LoadingBarComponent-6db478302310b2eb991d48684c678bf031518590bf2febe0ea777f4bb24b915c06e61bc0365382f384f524ba84a89727269967148eca2ecab241ddb4c1fbf4bd",
+            "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-loading-bar",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./loading-bar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "$loading",
+                    "defaultValue": "signal<boolean>(true)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        124,
+                        148
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatProgressBarModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  signal,\n} from '@angular/core';\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\n\n@Component({\n  selector: 'docup-loading-bar',\n  standalone: true,\n  imports: [MatProgressBarModule],\n  templateUrl: './loading-bar.component.html',\n  styleUrl: './loading-bar.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LoadingBarComponent {\n  protected readonly $loading = signal<boolean>(true);\n  @Input() set loading(x: boolean) {\n    this.$loading.set(x);\n  }\n}\n",
+            "styleUrl": "./loading-bar.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "loading": {
+                    "name": "loading",
+                    "setSignature": {
+                        "name": "loading",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "x",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 19,
+                        "jsdoctags": [
+                            {
+                                "name": "x",
+                                "type": "boolean",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "@if (this.$loading()) {\n  <mat-progress-bar color=\"accent\" mode=\"indeterminate\" class=\"loading\" />\n}\n"
+        },
+        {
+            "name": "MdContentComponent",
+            "id": "component-MdContentComponent-44b8842b1c1e9e2718e22a5e3f4e168cd0779f18e3a743f9439f6cec335d2aa0c52dfc44332aab36069a9d6bb21b2a1ca86a246cc2af59c6caee0f6852def3fd",
+            "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-md-content",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./md-content.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "doc",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "DocumentRef",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "document$",
+                    "defaultValue": "this.documentSub.asObservable()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<DocumentRef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "documentSub",
+                    "defaultValue": "new BehaviorSubject<DocumentRef>({\n    docRef: '',\n    content: initialMarkdownDocumentModel,\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "BehaviorSubject<DocumentRef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngDoBootstrap",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 60,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "DynamicContainerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "LoadingBarComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  CUSTOM_ELEMENTS_SCHEMA,\n  ChangeDetectorRef,\n  Component,\n  DoBootstrap,\n  Injector,\n  Input,\n  OnInit,\n} from '@angular/core';\nimport { createCustomElement } from '@angular/elements';\nimport { DynamicContainerComponent } from '../dynamic-container/dynamic-container.component';\nimport { DocumentRef } from '../../../models/document-ref.model';\nimport { initialMarkdownDocumentModel } from '../../../models/markdown-document.model';\nimport { BehaviorSubject, Observable, of } from 'rxjs';\nimport { LoadingBarComponent } from '../../loading-bar/loading-bar.component';\n\n@Component({\n  selector: 'docup-md-content',\n  standalone: true,\n  schemas: [CUSTOM_ELEMENTS_SCHEMA],\n  imports: [DynamicContainerComponent, LoadingBarComponent],\n  templateUrl: './md-content.component.html',\n  styleUrl: './md-content.component.scss',\n})\nexport class MdContentComponent implements OnInit, DoBootstrap {\n  private documentSub: BehaviorSubject<DocumentRef> = new BehaviorSubject<DocumentRef>({\n    docRef: '',\n    content: initialMarkdownDocumentModel,\n  });\n  document$: Observable<DocumentRef> = this.documentSub.asObservable();\n  @Input() set doc(x: DocumentRef) {\n    this.documentSub.next(x);\n  }\n\n  constructor(\n    private injector: Injector,\n    private cdRef: ChangeDetectorRef,\n  ) {\n    // const element1 = createCustomElement(DynamicContainerComponent, {\n    //   injector: this.injector,\n    // });\n    // customElements.get('docup-dynamic-container') ||\n    //   customElements.define('docup-dynamic-container', element1);\n\n    // const element2 = createCustomElement(LoadingBarComponent, {\n    //   injector: this.injector,\n    // });\n    // customElements.get('docup-loading-bar') ||\n    //   customElements.define('docup-loading-bar', element2);\n  }\n\n  ngDoBootstrap() {\n    const element1 = createCustomElement(DynamicContainerComponent, {\n      injector: this.injector,\n    });\n    customElements.get('docup-dynamic-container') ||\n      customElements.define('docup-dynamic-container', element1);\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "styleUrl": "./md-content.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 33,
+                "jsdoctags": [
+                    {
+                        "name": "injector",
+                        "type": "Injector",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "cdRef",
+                        "type": "ChangeDetectorRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "DoBootstrap"
+            ],
+            "accessors": {
+                "doc": {
+                    "name": "doc",
+                    "setSignature": {
+                        "name": "doc",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "x",
+                                "type": "DocumentRef",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 31,
+                        "jsdoctags": [
+                            {
+                                "name": "x",
+                                "type": "DocumentRef",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "templateData": "<docup-dynamic-container [doc$]=\"document$\"></docup-dynamic-container>\n"
+        },
+        {
+            "name": "MdHeaderComponent",
+            "id": "component-MdHeaderComponent-d683c3be907dcef9a4e2e9dca6b4c17ebfa7adec5bea9c6604115bcbe2667b1fdce07de6ebd97fb1be3a63dc6518e304c733723bbd91cef20a73af584197c046",
+            "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-md-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./md-header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "document",
+                    "defaultValue": "initialMarkdownDocumentModel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "MarkdownDocument | undefined",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "TagLinkListComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { MarkdownDocument, initialMarkdownDocumentModel } from '../../../models/markdown-document.model';\nimport { TagLinkListComponent } from '../../tags/tag-link-list/tag-link-list.component';\n\n@Component({\n  selector: 'docup-md-header',\n  standalone: true,\n  imports: [TagLinkListComponent],\n  templateUrl: './md-header.component.html',\n  styleUrl: './md-header.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class MdHeaderComponent {\n  @Input() document: MarkdownDocument | undefined = initialMarkdownDocumentModel;\n}\n",
+            "styleUrl": "./md-header.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"document-header-container\">\n  <div class=\"header-grid mat-caption header-hint-text\">\n    @if (document?.category) {\n      <div>Category: {{ document?.category }}</div>\n    }\n    @if (document?.date) {\n      <div>Last Update: {{ document?.date }}</div>\n    }\n  </div>\n  @if (document?.title) {\n    <h1>{{ document?.title }}</h1>\n  }\n  <div class=\"tag-container\">\n    <docup-tag-link-list [tags]=\"document?.tag\" />\n  </div>\n</div>\n"
         },
         {
             "name": "PageComponent",
@@ -403,11 +1182,172 @@
             ],
             "stylesData": "",
             "extends": []
+        },
+        {
+            "name": "TagLinkComponent",
+            "id": "component-TagLinkComponent-2b9865726c61d09919659d63d7d1bfc53229937370fe31624a6f083b528142283fe96e6d9e754ab8fb5f5c7ca41068956e6a8bdb5ff6b6ad0d251a4d1a2ab5f0",
+            "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-tag-link",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./tag-link.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatChipsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  EventEmitter,\n  Input,\n  Output,\n} from '@angular/core';\nimport { MatChipsModule } from '@angular/material/chips';\n\n@Component({\n  selector: 'docup-tag-link',\n  standalone: true,\n  imports: [MatChipsModule],\n  templateUrl: './tag-link.component.html',\n  styleUrl: './tag-link.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TagLinkComponent {\n  @Input() value = '';\n  @Output() onClick = new EventEmitter<Event>();\n}\n",
+            "styleUrl": "./tag-link.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-chip-option\n  selectable=\"false\"\n  (click)=\"onClick.emit($event)\"\n  class=\"tag-item\"\n>\n  {{ value }}\n</mat-chip-option>\n"
+        },
+        {
+            "name": "TagLinkListComponent",
+            "id": "component-TagLinkListComponent-0928fef6efd446095dccea052cf8ec0b8351928e05bcaac92fb074883ffac12f8f41ced8d9f4e852e4453f9c504b5c65513c71b701772bef53bf908c8d13324c",
+            "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "docup-tag-link-list",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./tag-link-list.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "tags",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string[] | undefined | null",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatChipsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "TagLinkComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { MatChipsModule } from '@angular/material/chips';\nimport { TagLinkComponent } from '../tag-link/tag-link.component';\n\n@Component({\n  selector: 'docup-tag-link-list',\n  standalone: true,\n  imports: [MatChipsModule, TagLinkComponent],\n  templateUrl: './tag-link-list.component.html',\n  styleUrl: './tag-link-list.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TagLinkListComponent {\n  @Input() tags: string[] | undefined | null = [];\n}\n",
+            "styleUrl": "./tag-link-list.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<mat-chip-listbox>\n  @for (tag of tags; track $index) {\n    <docup-tag-link [value]=\"tag\" />\n  }\n</mat-chip-listbox>\n"
         }
     ],
     "modules": [],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "DocumentList",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    documents: [{\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル1',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },{\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル2',\r\n        date: '2024-01-02',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },{\r\n      docRef: 'csharp/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル2',\r\n        date: '2024-01-03',\r\n        category: 'C#',\r\n        tag: ['csharp', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    }],\r\n  },\r\n}"
+            },
+            {
+                "name": "Header",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    document: {\r\n      title: 'テストドキュメントのタイトル',\r\n      date: '2024-01-01',\r\n      category: 'Angular',\r\n      tag: ['angular', 'test', 'tag'],\r\n      toc: '',\r\n      body: '',\r\n      bodyHtml: '',\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "HideCategory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    showCategory: false,\r\n    item: {\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title:\r\n          'テストドキュメントのタイトルに関して、非常に長いタイトルをつけるとこのようになりました',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "initialMarkdownDocumentModel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  title: '',\n  date: '',\n  category: '',\n  tag: [],\n  toc: '',\n  body: '',\n  bodyHtml: '',\n}"
+            },
             {
                 "name": "Large",
                 "ctype": "miscellaneous",
@@ -417,6 +1357,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    loading: true,\r\n  },\r\n}"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    doc: {\r\n      docRef: '',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '<p>scoopを利用して、開発環境の自動セットアップ、および最新版への定期的なアップデートなどの管理を上手に行えるのか試してみます。</p>\\n\\n<docup-loading-bar></docup-loading-bar [loading]=\"true\">\\n<p>loading barの表示テスト</p>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=install-scoop.ps1\\\"></script>\\n</div>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-common.ps1\\\"></script>\\n</div>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-dev.ps1\\\"></script>\\n</div>\\n'\r\n      },\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "LoggedIn",
@@ -489,6 +1449,76 @@
                 "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LoadingBarComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Loading Bar',\r\n  component: LoadingBarComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DocumentListComponent>",
+                "defaultValue": "{\r\n    title: 'Components/Document List/Document List',\r\n    component: DocumentListComponent,\r\n    tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DocumentListItemComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Document List/Document List Item',\r\n  component: DocumentListItemComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MdContentComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Markdown/Content',\r\n  component: MdContentComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MdHeaderComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Markdown/Header',\r\n  component: MdHeaderComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TagLinkComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Tags/Tag Link',\r\n  component: TagLinkComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TagLinkListComponent>",
+                "defaultValue": "{\r\n  title: 'Components/Tags/Tag Link List',\r\n  component: TagLinkListComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -496,7 +1526,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    options: {\n      storySort: {\n        method: 'alphabetical'\n      },\n    }\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -519,6 +1549,16 @@
                 "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
             },
             {
+                "name": "ShowCategory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    showCategory: true,\r\n    item: {\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -527,6 +1567,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Tag",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    value: 'Test Tag',\r\n  },\r\n}"
+            },
+            {
+                "name": "TagList",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    tags: ['tag1', 'tag2', 'tag3'],\r\n  },\r\n}"
             }
         ],
         "functions": [],
@@ -563,10 +1623,175 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<LoadingBarComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DocumentListComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DocumentListItemComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MdContentComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MdHeaderComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagLinkComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TagLinkListComponent>",
+                "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts": [
+                {
+                    "name": "DocumentList",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    documents: [{\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル1',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },{\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル2',\r\n        date: '2024-01-02',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },{\r\n      docRef: 'csharp/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル2',\r\n        date: '2024-01-03',\r\n        category: 'C#',\r\n        tag: ['csharp', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    }],\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DocumentListComponent>",
+                    "defaultValue": "{\r\n    title: 'Components/Document List/Document List',\r\n    component: DocumentListComponent,\r\n    tags: ['autodocs'],\r\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts": [
+                {
+                    "name": "Header",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    document: {\r\n      title: 'テストドキュメントのタイトル',\r\n      date: '2024-01-01',\r\n      category: 'Angular',\r\n      tag: ['angular', 'test', 'tag'],\r\n      toc: '',\r\n      body: '',\r\n      bodyHtml: '',\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MdHeaderComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Markdown/Header',\r\n  component: MdHeaderComponent,\r\n  tags: ['autodocs'],\r\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts": [
+                {
+                    "name": "HideCategory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    showCategory: false,\r\n    item: {\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title:\r\n          'テストドキュメントのタイトルに関して、非常に長いタイトルをつけるとこのようになりました',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DocumentListItemComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Document List/Document List Item',\r\n  component: DocumentListItemComponent,\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "ShowCategory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    showCategory: true,\r\n    item: {\r\n      docRef: 'angular/test-docref',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '',\r\n      },\r\n    },\r\n  },\r\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts": [
+                {
+                    "name": "initialMarkdownDocumentModel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  title: '',\n  date: '',\n  category: '',\n  tag: [],\n  toc: '',\n  body: '',\n  bodyHtml: '',\n}"
+                }
+            ],
             "projects/docupacker-angular-lib/src/stories/button.stories.ts": [
                 {
                     "name": "Large",
@@ -617,6 +1842,50 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts": [
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    loading: true,\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<LoadingBarComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Loading Bar',\r\n  component: LoadingBarComponent,\r\n  tags: ['autodocs'],\r\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts": [
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    doc: {\r\n      docRef: '',\r\n      content: {\r\n        title: 'テストドキュメントのタイトル',\r\n        date: '2024-01-01',\r\n        category: 'Angular',\r\n        tag: ['angular', 'test', 'tag'],\r\n        toc: '',\r\n        body: '',\r\n        bodyHtml: '<p>scoopを利用して、開発環境の自動セットアップ、および最新版への定期的なアップデートなどの管理を上手に行えるのか試してみます。</p>\\n\\n<docup-loading-bar></docup-loading-bar [loading]=\"true\">\\n<p>loading barの表示テスト</p>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=install-scoop.ps1\\\"></script>\\n</div>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-common.ps1\\\"></script>\\n</div>\\n<div class=\\\"gist\\\">\\n  <script src=\\\"https://gist.github.com/takumura/f897ab722e0d55523243dcfe7a51d4c1.js?file=env-setup-dev.ps1\\\"></script>\\n</div>\\n'\r\n      },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MdContentComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Markdown/Content',\r\n  component: MdContentComponent,\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
             "projects/docupacker-angular-lib/src/stories/header.stories.ts": [
@@ -683,6 +1952,50 @@
                     "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
                 }
             ],
+            "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TagLinkComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Tags/Tag Link',\r\n  component: TagLinkComponent,\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "Tag",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    value: 'Test Tag',\r\n  },\r\n}"
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TagLinkListComponent>",
+                    "defaultValue": "{\r\n  title: 'Components/Tags/Tag Link List',\r\n  component: TagLinkListComponent,\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "TagList",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    tags: ['tag1', 'tag2', 'tag3'],\r\n  },\r\n}"
+                }
+            ],
             "projects/docupacker-angular-lib/.storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -692,7 +2005,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    options: {\n      storySort: {\n        method: 'alphabetical'\n      },\n    }\n  },\n}"
                 }
             ]
         },
@@ -737,12 +2050,103 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<LoadingBarComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DocumentListComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DocumentListItemComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MdContentComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MdHeaderComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagLinkComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TagLinkListComponent>",
+                    "file": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 1,
         "status": "low",
         "files": [
             {
@@ -753,6 +2157,228 @@
                 "name": "preview",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "HideCategory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ShowCategory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list-item/document-list-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DocumentListItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DocumentList",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/documents/document-list/document-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DocumentListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/loading-bar/loading-bar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoadingBarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/dynamic-container/dynamic-container.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DynamicContainerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-content/md-content.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MdContentComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Header",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/markdown/md-header/md-header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MdHeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TagList",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link-list/tag-link-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TagLinkListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tag",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/components/tags/tag-link/tag-link.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TagLinkComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
@@ -771,6 +2397,34 @@
                 "name": "DocupackerAngularLibService",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/models/document-ref.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DocumentRef",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "MarkdownDocument",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/docupacker-angular-lib/src/lib/models/markdown-document.model.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initialMarkdownDocumentModel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

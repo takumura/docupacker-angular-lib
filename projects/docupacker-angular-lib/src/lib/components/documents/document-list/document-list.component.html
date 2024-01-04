@@ -1,0 +1,5 @@
+<mat-nav-list>
+  @for (document of documents; track $index) {
+    <docup-document-list-item [item]="document" />
+  }
+</mat-nav-list>
